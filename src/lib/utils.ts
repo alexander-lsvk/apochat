@@ -3,22 +3,22 @@ export function formatDistanceToNow(date: Date): string {
   const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
 
   if (diffInSeconds < 60) {
-    return 'Just now';
+    return 'Gerade eben';
   }
 
   const diffInMinutes = Math.floor(diffInSeconds / 60);
   if (diffInMinutes < 60) {
-    return `${diffInMinutes}m ago`;
+    return `vor ${diffInMinutes} Min.`;
   }
 
   const diffInHours = Math.floor(diffInMinutes / 60);
   if (diffInHours < 24) {
-    return `${diffInHours}h ago`;
+    return `vor ${diffInHours} Std.`;
   }
 
   const diffInDays = Math.floor(diffInHours / 24);
   if (diffInDays < 7) {
-    return `${diffInDays}d ago`;
+    return `vor ${diffInDays} ${diffInDays === 1 ? 'Tag' : 'Tagen'}`;
   }
 
   // Return formatted date for older messages
@@ -43,9 +43,9 @@ export function formatDate(date: Date): string {
   const diffInDays = Math.floor((today.getTime() - messageDate.getTime()) / (1000 * 60 * 60 * 24));
 
   if (diffInDays === 0) {
-    return 'Today';
+    return 'Heute';
   } else if (diffInDays === 1) {
-    return 'Yesterday';
+    return 'Gestern';
   } else if (diffInDays < 7) {
     return date.toLocaleDateString('de-DE', { weekday: 'long' });
   } else {

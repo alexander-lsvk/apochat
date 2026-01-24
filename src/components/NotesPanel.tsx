@@ -42,7 +42,7 @@ export function NotesPanel({ notes, onClose, onAddNote }: NotesPanelProps) {
         <div className="flex items-center justify-between p-4 border-b border-gray-100">
           <div className="flex items-center gap-2">
             <FileText className="w-5 h-5 text-[#3E8E41]" />
-            <h2 className="text-lg font-semibold text-gray-900">Internal Notes</h2>
+            <h2 className="text-lg font-semibold text-gray-900">Interne Notizen</h2>
           </div>
           <button
             onClick={onClose}
@@ -59,9 +59,9 @@ export function NotesPanel({ notes, onClose, onAddNote }: NotesPanelProps) {
               <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <FileText className="w-6 h-6 text-gray-400" />
               </div>
-              <p className="text-gray-500 text-sm">No notes yet</p>
+              <p className="text-gray-500 text-sm">Noch keine Notizen</p>
               <p className="text-gray-400 text-xs mt-1">
-                Add internal notes for your team
+                Fügen Sie interne Notizen für Ihr Team hinzu
               </p>
             </div>
           ) : (
@@ -81,7 +81,7 @@ export function NotesPanel({ notes, onClose, onAddNote }: NotesPanelProps) {
                 value={newNote}
                 onChange={(e) => setNewNote(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Add a note for your team..."
+                placeholder="Notiz für Ihr Team hinzufügen..."
                 rows={2}
                 className="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg bg-gray-50 focus:bg-white resize-none placeholder-gray-400"
               />
@@ -95,7 +95,7 @@ export function NotesPanel({ notes, onClose, onAddNote }: NotesPanelProps) {
             </button>
           </div>
           <p className="text-xs text-gray-400 mt-2">
-            Notes are only visible to your team, not the customer.
+            Notizen sind nur für Ihr Team sichtbar, nicht für den Kunden.
           </p>
         </div>
       </div>

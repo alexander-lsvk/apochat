@@ -75,7 +75,7 @@ export function ChatView({
             <WhatsAppIcon />
           </div>
           <h2 className="text-xl font-semibold text-gray-800 mb-2">mea® Chat</h2>
-          <p className="text-gray-500">Select a conversation to start messaging</p>
+          <p className="text-gray-500">Wählen Sie eine Unterhaltung aus, um zu chatten</p>
         </div>
       </div>
     );
@@ -116,7 +116,7 @@ export function ChatView({
             <button
               onClick={() => onUpdateStatus(conversation.id, 'done')}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              title="Mark as done"
+              title="Als erledigt markieren"
             >
               <Check className="w-5 h-5 text-gray-500" />
             </button>
@@ -131,7 +131,7 @@ export function ChatView({
                     ? 'bg-[#E8F5E9] text-[#3E8E41]'
                     : 'hover:bg-gray-100 text-gray-500'
                 }`}
-                title="Contact details"
+                title="Kontaktdetails"
               >
                 <User className="w-5 h-5" />
               </button>
@@ -170,7 +170,7 @@ export function ChatView({
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Type a message..."
+              placeholder="Nachricht schreiben..."
               rows={1}
               className="w-full px-4 py-3 bg-transparent resize-none text-sm focus:outline-none"
               style={{ minHeight: '44px', maxHeight: '120px' }}
@@ -181,7 +181,7 @@ export function ChatView({
                 className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
               >
                 <FileText className="w-4 h-4" />
-                Note
+                Notiz
               </button>
               <div className="w-px h-4 bg-gray-200" />
               <button
@@ -189,7 +189,7 @@ export function ChatView({
                 className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
               >
                 <Bookmark className="w-4 h-4" />
-                WhatsApp template
+                WhatsApp Vorlage
               </button>
             </div>
           </div>
@@ -198,7 +198,7 @@ export function ChatView({
             disabled={!message.trim()}
             className="px-5 py-3 bg-[#3E8E41] hover:bg-[#2D6A30] disabled:bg-gray-300 text-white text-sm font-medium rounded-xl transition-colors"
           >
-            Send
+            Senden
           </button>
         </div>
       </div>
@@ -236,7 +236,7 @@ function MessageBubble({ message }: MessageBubbleProps) {
         <div className="max-w-[70%] bg-gray-100 rounded-xl px-4 py-3 shadow-sm">
           <div className="flex items-center gap-2 text-gray-500">
             <AlertCircle className="w-4 h-4" />
-            <span className="text-sm">Message type is currently not supported.</span>
+            <span className="text-sm">Nachrichtentyp wird derzeit nicht unterstützt.</span>
           </div>
           <div className="flex items-center justify-end gap-1 mt-1">
             <span className="text-xs text-gray-400">{formatTime(message.timestamp)}</span>

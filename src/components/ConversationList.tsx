@@ -38,9 +38,9 @@ export function ConversationList({
   tabCounts,
 }: ConversationListProps) {
   const tabs: { key: TabFilter; label: string }[] = [
-    { key: 'open', label: 'Open' },
-    { key: 'snoozed', label: 'Snoozed' },
-    { key: 'done', label: 'Done' },
+    { key: 'open', label: 'Offen' },
+    { key: 'snoozed', label: 'Später' },
+    { key: 'done', label: 'Erledigt' },
   ];
 
   return (
@@ -48,7 +48,7 @@ export function ConversationList({
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
         <div className="flex items-center gap-2">
-          <h1 className="text-lg font-semibold text-gray-900">All conversations</h1>
+          <h1 className="text-lg font-semibold text-gray-900">Alle Unterhaltungen</h1>
           <button className="p-1 hover:bg-gray-100 rounded-md transition-colors">
             <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -93,7 +93,7 @@ export function ConversationList({
       {/* Sort & Filter */}
       <div className="flex items-center justify-between px-4 py-2 text-sm text-gray-500">
         <div className="flex items-center gap-1">
-          <span>Newest</span>
+          <span>Neueste</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
@@ -114,7 +114,7 @@ export function ConversationList({
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
             type="text"
-            placeholder="Search conversations..."
+            placeholder="Unterhaltungen suchen..."
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             className="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-lg bg-gray-50 focus:bg-white placeholder-gray-400"
@@ -129,7 +129,7 @@ export function ConversationList({
             <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-3">
               <MessageCircle className="w-6 h-6 text-gray-400" />
             </div>
-            <p className="text-sm text-gray-500">No conversations found</p>
+            <p className="text-sm text-gray-500">Keine Unterhaltungen gefunden</p>
           </div>
         ) : (
           conversations.map((conversation) => (
@@ -198,7 +198,7 @@ function ConversationItem({ conversation, isActive, onClick }: ConversationItemP
         )}
 
         <p className={`text-sm ${conversation.unreadCount > 0 ? 'text-gray-800' : 'text-gray-500'} truncate`}>
-          {conversation.lastMessage || 'No messages yet'}
+          {conversation.lastMessage || 'Noch keine Nachrichten'}
         </p>
 
         {/* Tags */}

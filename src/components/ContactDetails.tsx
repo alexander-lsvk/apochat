@@ -5,10 +5,8 @@ import {
   X,
   Phone,
   Mail,
-  MapPin,
   Tag,
   Clock,
-  FileText,
   ExternalLink,
   MessageSquare,
   Calendar,
@@ -27,12 +25,18 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
+const statusLabels: Record<string, string> = {
+  open: 'Offen',
+  snoozed: 'Später',
+  done: 'Erledigt',
+};
+
 export function ContactDetails({ conversation, onClose }: ContactDetailsProps) {
   return (
     <div className="w-80 bg-white border-l border-gray-200 flex flex-col h-full">
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-100">
-        <h3 className="font-semibold text-gray-900">Contact Details</h3>
+        <h3 className="font-semibold text-gray-900">Kontaktdetails</h3>
         <button
           onClick={onClose}
           className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors"
@@ -68,13 +72,13 @@ export function ContactDetails({ conversation, onClose }: ContactDetailsProps) {
         {/* Quick Info */}
         <div className="p-4 border-b border-gray-100">
           <h5 className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">
-            Quick Info
+            Kurzinfo
           </h5>
           <div className="space-y-3">
-            <InfoRow icon={MessageSquare} label="Channel" value="WhatsApp" />
+            <InfoRow icon={MessageSquare} label="Kanal" value="WhatsApp" />
             <InfoRow
               icon={Calendar}
-              label="First Contact"
+              label="Erstkontakt"
               value={formatDate(conversation.messages[0]?.timestamp || new Date())}
             />
             <InfoRow
@@ -90,14 +94,14 @@ export function ContactDetails({ conversation, onClose }: ContactDetailsProps) {
                       : 'bg-gray-100 text-gray-700'
                   }`}
                 >
-                  {conversation.status.charAt(0).toUpperCase() + conversation.status.slice(1)}
+                  {statusLabels[conversation.status]}
                 </span>
               }
             />
             <InfoRow
               icon={User}
-              label="Assigned"
-              value="Unassigned"
+              label="Zugewiesen"
+              value="Nicht zugewiesen"
             />
           </div>
         </div>
@@ -119,12 +123,12 @@ export function ContactDetails({ conversation, onClose }: ContactDetailsProps) {
                 </span>
               ))}
               <button className="inline-flex items-center px-2.5 py-1 text-xs text-gray-500 border border-dashed border-gray-300 rounded-full hover:border-[#3E8E41] hover:text-[#3E8E41] transition-colors">
-                + Add label
+                + Label hinzufügen
               </button>
             </div>
           ) : (
             <button className="inline-flex items-center px-2.5 py-1 text-xs text-gray-500 border border-dashed border-gray-300 rounded-full hover:border-[#3E8E41] hover:text-[#3E8E41] transition-colors">
-              + Add label
+              + Label hinzufügen
             </button>
           )}
         </div>
@@ -132,7 +136,7 @@ export function ContactDetails({ conversation, onClose }: ContactDetailsProps) {
         {/* Internal Notes */}
         <div className="p-4">
           <h5 className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">
-            Internal Notes
+            Interne Notizen
           </h5>
           {conversation.notes && conversation.notes.length > 0 ? (
             <div className="space-y-2">
@@ -147,7 +151,7 @@ export function ContactDetails({ conversation, onClose }: ContactDetailsProps) {
               ))}
             </div>
           ) : (
-            <p className="text-sm text-gray-400">No notes yet</p>
+            <p className="text-sm text-gray-400">Noch keine Notizen</p>
           )}
         </div>
       </div>
