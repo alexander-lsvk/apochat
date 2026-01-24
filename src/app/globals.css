@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+:root {
+  /* mea® Apotheke color scheme */
+  --mea-green: #3E8E41;
+  --mea-green-dark: #2D6A30;
+  --mea-green-light: #E8F5E9;
+  --mea-green-50: #F1F8F2;
+  --mea-accent: #8BC34A;
+
+  /* Chat colors */
+  --chat-incoming: #FFFFFF;
+  --chat-outgoing: #E8F5E9;
+  --chat-outgoing-border: #C8E6C9;
+
+  /* UI colors */
+  --background: #F5F7FA;
+  --foreground: #1A1A1A;
+  --sidebar-bg: #FFFFFF;
+  --chat-bg: #F0F4F8;
+  --border-color: #E5E7EB;
+  --text-muted: #6B7280;
+  --text-secondary: #9CA3AF;
+
+  /* WhatsApp green */
+  --whatsapp-green: #25D366;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-mea-green: var(--mea-green);
+  --color-mea-green-dark: var(--mea-green-dark);
+  --color-mea-green-light: var(--mea-green-light);
+  --color-mea-green-50: var(--mea-green-50);
+  --color-mea-accent: var(--mea-accent);
+  --color-chat-incoming: var(--chat-incoming);
+  --color-chat-outgoing: var(--chat-outgoing);
+  --color-sidebar-bg: var(--sidebar-bg);
+  --color-chat-bg: var(--chat-bg);
+  --color-border: var(--border-color);
+  --color-text-muted: var(--text-muted);
+  --color-text-secondary: var(--text-secondary);
+  --color-whatsapp: var(--whatsapp-green);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #CBD5E1;
+  border-radius: 3px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+button, [role="button"] {
+  cursor: pointer;
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Message bubble animations */
+@keyframes messageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-animation {
+  animation: messageIn 0.3s ease-out;
+}
+
+/* Hover effect for conversation items */
+.conversation-item {
+  transition: background-color 0.15s ease;
+}
+
+.conversation-item:hover {
+  background-color: #F3F4F6;
+}
+
+.conversation-item.active {
+  background-color: var(--mea-green-50);
+  border-left: 3px solid var(--mea-green);
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--mea-green);
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--mea-green-dark);
+}
+
+.btn-primary:disabled {
+  background-color: #9CA3AF;
+  cursor: not-allowed;
+}
+
+/* Tab styles */
+.tab-item {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--mea-green);
+  border-radius: 1px;
+}
+
+/* Badge styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 9999px;
+}
+
+.badge-green {
+  background-color: var(--mea-green-light);
+  color: var(--mea-green-dark);
+}
+
+.badge-orange {
+  background-color: #FFF3E0;
+  color: #E65100;
+}
+
+.badge-blue {
+  background-color: #E3F2FD;
+  color: #1565C0;
+}
+
+/* Input focus styles */
+input:focus {
+  outline: none;
+  border-color: var(--mea-green);
+  box-shadow: 0 0 0 3px rgba(62, 142, 65, 0.1);
+}
+
+textarea:focus {
+  outline: none;
+}
+
+/* Template card hover */
+.template-card {
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
+}
+
+.template-card:hover {
+  border-color: var(--mea-green);
+  box-shadow: 0 4px 12px rgba(62, 142, 65, 0.15);
+}
+
+/* WhatsApp icon pulse */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.whatsapp-icon {
+  animation: pulse 2s infinite;
+}
