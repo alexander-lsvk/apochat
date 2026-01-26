@@ -150,7 +150,7 @@ function MeaLogo() {
     <img
       src="/mea.webp"
       alt="mea"
-      className="w-10 h-10 rounded-lg object-cover"
+      className="h-10 rounded-lg object-contain"
     />
   );
 }
