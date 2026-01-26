@@ -164,7 +164,7 @@ function ConversationItem({ conversation, isActive, onClick }: ConversationItemP
     >
       {/* Avatar */}
       <div className="relative flex-shrink-0">
-        <div className="w-10 h-10 rounded-full bg-[#E8F5E9] flex items-center justify-center">
+        <div className="w-10 h-10 rounded-full bg-[#F0FADF] flex items-center justify-center">
           <WhatsAppIcon />
         </div>
         {conversation.unreadCount > 0 && (
@@ -212,7 +212,7 @@ function ConversationItem({ conversation, isActive, onClick }: ConversationItemP
                     ? 'bg-orange-100 text-orange-700'
                     : label === 'Bestellung'
                     ? 'bg-blue-100 text-blue-700'
-                    : 'bg-[#E8F5E9] text-[#2D6A30]'
+                    : 'bg-[#F0FADF] text-[#2D6A30]'
                 }`}
               >
                 {label}

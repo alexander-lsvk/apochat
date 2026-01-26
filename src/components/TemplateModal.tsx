@@ -125,7 +125,7 @@ function TemplateCard({ template, onSelect }: TemplateCardProps) {
       <div className="flex items-start justify-between mb-2">
         <div>
           <h3 className="font-medium text-gray-900 mb-1">{template.name}</h3>
-          <span className="inline-flex items-center px-2 py-0.5 text-xs bg-[#E8F5E9] text-[#2D6A30] rounded-full">
+          <span className="inline-flex items-center px-2 py-0.5 text-xs bg-[#F0FADF] text-[#2D6A30] rounded-full">
             {template.category}
           </span>
         </div>

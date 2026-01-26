@@ -101,7 +101,7 @@ export function ChatView({
       <div className="bg-white border-b border-gray-200 px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#E8F5E9] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-[#F0FADF] flex items-center justify-center">
               <WhatsAppIcon />
             </div>
             <div>
@@ -128,7 +128,7 @@ export function ChatView({
                 onClick={onToggleContactDetails}
                 className={`p-2 rounded-lg transition-colors ${
                   showContactDetails
-                    ? 'bg-[#E8F5E9] text-[#3E8E41]'
+                    ? 'bg-[#F0FADF] text-[#3E8E41]'
                     : 'hover:bg-gray-100 text-gray-500'
                 }`}
                 title="Kontaktdetails"
@@ -251,7 +251,7 @@ function MessageBubble({ message }: MessageBubbleProps) {
       <div
         className={`max-w-[70%] rounded-xl px-4 py-2.5 shadow-sm ${
           isOutgoing
-            ? 'bg-[#E8F5E9] text-gray-800'
+            ? 'bg-[#F0FADF] text-gray-800'
             : 'bg-white text-gray-800'
         }`}
       >

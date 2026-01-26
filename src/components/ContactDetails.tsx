@@ -49,7 +49,7 @@ export function ContactDetails({ conversation, onClose }: ContactDetailsProps) {
       <div className="flex-1 overflow-y-auto">
         {/* Profile */}
         <div className="p-4 text-center border-b border-gray-100">
-          <div className="w-20 h-20 bg-[#E8F5E9] rounded-full flex items-center justify-center mx-auto mb-3">
+          <div className="w-20 h-20 bg-[#F0FADF] rounded-full flex items-center justify-center mx-auto mb-3">
             <WhatsAppIcon />
           </div>
           <h4 className="text-lg font-semibold text-gray-900">
@@ -116,7 +116,7 @@ export function ContactDetails({ conversation, onClose }: ContactDetailsProps) {
               {conversation.labels.map((label) => (
                 <span
                   key={label}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 text-xs bg-[#E8F5E9] text-[#2D6A30] rounded-full"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 text-xs bg-[#F0FADF] text-[#2D6A30] rounded-full"
                 >
                   <Tag className="w-3 h-3" />
                   {label}

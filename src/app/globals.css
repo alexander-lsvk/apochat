@@ -4,8 +4,8 @@
   /* mea® Apotheke color scheme */
   --mea-green: #3E8E41;
   --mea-green-dark: #2D6A30;
-  --mea-green-light: #E8F5E9;
-  --mea-green-50: #F1F8F2;
+  --mea-green-light: #F0FADF;
+  --mea-green-50: #F7FCF0;
   --mea-accent: #8BC34A;
 
   /* Gradient colors (from mea logo) */
@@ -15,8 +15,8 @@
 
   /* Chat colors */
   --chat-incoming: #FFFFFF;
-  --chat-outgoing: #E8F5E9;
-  --chat-outgoing-border: #C8E6C9;
+  --chat-outgoing: #F0FADF;
+  --chat-outgoing-border: #D8EFBB;
 
   /* UI colors */
   --background: #F5F7FA;
