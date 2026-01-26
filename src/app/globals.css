@@ -168,7 +168,7 @@ button, [role="button"] {
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--mea-gradient);
+  background: var(--mea-gradient-end);
   border-radius: 1px;
 }
 

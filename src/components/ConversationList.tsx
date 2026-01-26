@@ -84,7 +84,7 @@ export function ConversationList({
               </span>
             )}
             {activeTab === tab.key && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 mea-gradient" />
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[rgb(60,140,75)]" />
             )}
           </button>
         ))}
