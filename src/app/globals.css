@@ -127,7 +127,7 @@ button, [role="button"] {
   top: 0;
   bottom: 0;
   width: 3px;
-  background: var(--mea-gradient);
+  background: var(--mea-gradient-start);
 }
 
 /* Button styles */
