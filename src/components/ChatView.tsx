@@ -196,7 +196,7 @@ export function ChatView({
           <button
             onClick={handleSend}
             disabled={!message.trim()}
-            className="px-5 py-3 bg-[#3E8E41] hover:bg-[#2D6A30] disabled:bg-gray-300 text-white text-sm font-medium rounded-xl transition-colors"
+            className="btn-primary px-5 py-3 disabled:!bg-gray-300 text-white text-sm font-medium rounded-xl"
           >
             Senden
           </button>

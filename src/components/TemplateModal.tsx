@@ -66,7 +66,7 @@ export function TemplateModal({ onClose, onSelect }: TemplateModalProps) {
               onClick={() => setSelectedCategory(null)}
               className={`px-3 py-1.5 text-sm rounded-full transition-colors ${
                 !selectedCategory
-                  ? 'bg-[#3E8E41] text-white'
+                  ? 'mea-gradient text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
@@ -78,7 +78,7 @@ export function TemplateModal({ onClose, onSelect }: TemplateModalProps) {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-3 py-1.5 text-sm rounded-full transition-colors ${
                   selectedCategory === category
-                    ? 'bg-[#3E8E41] text-white'
+                    ? 'mea-gradient text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
               >
@@ -130,7 +130,7 @@ function TemplateCard({ template, onSelect }: TemplateCardProps) {
           </span>
         </div>
         <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-          <div className="w-8 h-8 bg-[#3E8E41] rounded-full flex items-center justify-center">
+          <div className="w-8 h-8 mea-gradient rounded-full flex items-center justify-center">
             <ArrowRight className="w-4 h-4 text-white" />
           </div>
         </div>

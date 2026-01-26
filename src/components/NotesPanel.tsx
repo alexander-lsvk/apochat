@@ -89,7 +89,7 @@ export function NotesPanel({ notes, onClose, onAddNote }: NotesPanelProps) {
             <button
               onClick={handleSubmit}
               disabled={!newNote.trim()}
-              className="p-2.5 bg-[#3E8E41] hover:bg-[#2D6A30] disabled:bg-gray-300 text-white rounded-lg transition-colors"
+              className="btn-primary p-2.5 disabled:!bg-gray-300 text-white rounded-lg"
             >
               <Send className="w-4 h-4" />
             </button>

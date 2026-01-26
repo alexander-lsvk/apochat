@@ -8,6 +8,11 @@
   --mea-green-50: #F1F8F2;
   --mea-accent: #8BC34A;
 
+  /* Gradient colors */
+  --mea-gradient-start: rgb(156, 191, 67);
+  --mea-gradient-end: rgb(54, 123, 97);
+  --mea-gradient: linear-gradient(to right, var(--mea-gradient-start), var(--mea-gradient-end));
+
   /* Chat colors */
   --chat-incoming: #FFFFFF;
   --chat-outgoing: #E8F5E9;
@@ -107,23 +112,47 @@ button, [role="button"] {
 
 .conversation-item.active {
   background-color: var(--mea-green-50);
-  border-left: 3px solid var(--mea-green);
+}
+
+/* Active conversation gradient border */
+.conversation-active {
+  position: relative;
+  background-color: var(--mea-green-50);
+}
+
+.conversation-active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--mea-gradient);
 }
 
 /* Button styles */
 .btn-primary {
-  background-color: var(--mea-green);
+  background: var(--mea-gradient);
   color: white;
   transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--mea-green-dark);
+  filter: brightness(0.95);
 }
 
 .btn-primary:disabled {
-  background-color: #9CA3AF;
+  background: #9CA3AF;
   cursor: not-allowed;
+}
+
+/* Gradient utility class */
+.mea-gradient {
+  background: var(--mea-gradient);
+}
+
+.mea-gradient-hover:hover {
+  filter: brightness(0.95);
 }
 
 /* Tab styles */
@@ -139,7 +168,7 @@ button, [role="button"] {
   left: 0;
   right: 0;
   height: 2px;
-  background-color: var(--mea-green);
+  background: var(--mea-gradient);
   border-radius: 1px;
 }
 

@@ -59,7 +59,7 @@ export function ConversationList({
           <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
             <Search className="w-5 h-5 text-gray-500" />
           </button>
-          <button className="p-2 bg-[#3E8E41] hover:bg-[#2D6A30] text-white rounded-lg transition-colors">
+          <button className="btn-primary p-2 text-white rounded-lg">
             <Edit3 className="w-5 h-5" />
           </button>
         </div>
@@ -84,7 +84,7 @@ export function ConversationList({
               </span>
             )}
             {activeTab === tab.key && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3E8E41]" />
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 mea-gradient" />
             )}
           </button>
         ))}
@@ -156,10 +156,10 @@ function ConversationItem({ conversation, isActive, onClick }: ConversationItemP
   return (
     <div
       onClick={onClick}
-      className={`flex items-start gap-3 px-4 py-3 cursor-pointer transition-all border-l-3 ${
+      className={`flex items-start gap-3 px-4 py-3 cursor-pointer transition-all ${
         isActive
-          ? 'bg-[#F1F8F2] border-l-[3px] border-l-[#3E8E41]'
-          : 'hover:bg-gray-50 border-l-[3px] border-l-transparent'
+          ? 'conversation-active'
+          : 'hover:bg-gray-50'
       }`}
     >
       {/* Avatar */}
@@ -168,7 +168,7 @@ function ConversationItem({ conversation, isActive, onClick }: ConversationItemP
           <WhatsAppIcon />
         </div>
         {conversation.unreadCount > 0 && (
-          <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#3E8E41] text-white text-xs font-medium rounded-full flex items-center justify-center">
+          <div className="absolute -top-1 -right-1 w-5 h-5 mea-gradient text-white text-xs font-medium rounded-full flex items-center justify-center">
             {conversation.unreadCount}
           </div>
         )}

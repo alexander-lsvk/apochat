@@ -147,7 +147,7 @@ export default function Home() {
 
 function MeaLogo() {
   return (
-    <div className="w-10 h-10 bg-[#3E8E41] rounded-lg flex items-center justify-center">
+    <div className="w-10 h-10 mea-gradient rounded-lg flex items-center justify-center">
       <svg viewBox="0 0 40 40" className="w-8 h-8" fill="white">
         <text
           x="50%"
