@@ -8,9 +8,9 @@
   --mea-green-50: #F1F8F2;
   --mea-accent: #8BC34A;
 
-  /* Gradient colors */
-  --mea-gradient-start: rgb(156, 191, 67);
-  --mea-gradient-end: rgb(54, 123, 97);
+  /* Gradient colors (from mea logo) */
+  --mea-gradient-start: rgb(155, 205, 55);
+  --mea-gradient-end: rgb(60, 140, 75);
   --mea-gradient: linear-gradient(to right, var(--mea-gradient-start), var(--mea-gradient-end));
 
   /* Chat colors */

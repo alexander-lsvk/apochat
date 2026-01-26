@@ -59,7 +59,7 @@ export function ConversationList({
           <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
             <Search className="w-5 h-5 text-gray-500" />
           </button>
-          <button className="p-2 bg-[rgb(156,191,67)] hover:brightness-95 text-white rounded-lg transition-all">
+          <button className="p-2 bg-[rgb(155,205,55)] hover:brightness-95 text-white rounded-lg transition-all">
             <Edit3 className="w-5 h-5" />
           </button>
         </div>
@@ -168,7 +168,7 @@ function ConversationItem({ conversation, isActive, onClick }: ConversationItemP
           <WhatsAppIcon />
         </div>
         {conversation.unreadCount > 0 && (
-          <div className="absolute -top-1 -right-1 w-5 h-5 bg-[rgb(156,191,67)] text-white text-xs font-medium rounded-full flex items-center justify-center">
+          <div className="absolute -top-1 -right-1 w-5 h-5 bg-[rgb(155,205,55)] text-white text-xs font-medium rounded-full flex items-center justify-center">
             {conversation.unreadCount}
           </div>
         )}
