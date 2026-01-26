@@ -185,18 +185,6 @@ function ConversationItem({ conversation, isActive, onClick }: ConversationItemP
           </span>
         </div>
 
-        {/* Labels */}
-        {conversation.labels && conversation.labels.length > 0 && (
-          <div className="flex items-center gap-1 mb-1">
-            <span className="inline-flex items-center text-xs text-gray-500">
-              <svg className="w-3 h-3 mr-0.5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm11 1H6v8l4-2 4 2V6z" clipRule="evenodd" />
-              </svg>
-              Zentrale
-            </span>
-          </div>
-        )}
-
         <p className={`text-sm ${conversation.unreadCount > 0 ? 'text-gray-800' : 'text-gray-500'} truncate`}>
           {conversation.lastMessage || 'Noch keine Nachrichten'}
         </p>
