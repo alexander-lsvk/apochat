@@ -128,7 +128,7 @@ export default function Home() {
                 pt-14 lg:pt-0
                 transition-transform duration-300 ease-in-out
                 bg-white
-                border-r border-gray-200
+                border-r border-gray-100
                 shadow-lg lg:shadow-none
               `}
             >

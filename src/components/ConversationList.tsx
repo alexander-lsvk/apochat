@@ -44,7 +44,7 @@ export function ConversationList({
   ];
 
   return (
-    <div className="flex flex-col h-full bg-white border-r border-gray-200">
+    <div className="flex flex-col h-full bg-white border-r border-gray-100">
       {/* Header */}
       <div className="flex items-center justify-between px-4 h-16 border-b border-gray-100">
         <div className="flex items-center gap-2">
