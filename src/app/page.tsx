@@ -52,27 +52,27 @@ export default function Home() {
           />
         </div>
 
-        {/* Center: Navigation */}
-        <nav className="flex items-center gap-8">
-          {navItems.map((item) => (
-            <button
-              key={item.key}
-              className={`relative py-2 text-sm font-medium transition-colors ${
-                item.active
-                  ? 'text-gray-900'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              {item.label}
-              {item.active && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[rgb(60,140,75)]" />
-              )}
-            </button>
-          ))}
-        </nav>
+        {/* Right: Navigation + Pharmacy Selector */}
+        <div className="flex items-center gap-8">
+          <nav className="flex items-center gap-8">
+            {navItems.map((item) => (
+              <button
+                key={item.key}
+                className={`relative py-2 text-base font-medium transition-colors ${
+                  item.active
+                    ? 'text-gray-900'
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {item.label}
+                {item.active && (
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[rgb(60,140,75)]" />
+                )}
+              </button>
+            ))}
+          </nav>
 
-        {/* Right: Pharmacy Selector */}
-        <div className="flex items-center">
+          {/* Pharmacy Selector */}
           <button className="flex items-center gap-3 px-4 py-2 border border-gray-200 rounded-full hover:bg-gray-50 transition-colors">
             <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
               <Building2 className="w-4 h-4 text-gray-500" />
