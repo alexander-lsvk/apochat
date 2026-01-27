@@ -69,7 +69,7 @@ export function ChatView({
 
   if (!conversation) {
     return (
-      <div className="flex-1 flex items-center justify-center bg-[#F0F4F8]">
+      <div className="flex-1 flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
             <WhatsAppIcon />
@@ -96,7 +96,7 @@ export function ChatView({
   });
 
   return (
-    <div className="flex-1 flex flex-col bg-[#F0F4F8] h-full">
+    <div className="flex-1 flex flex-col bg-gray-50 h-full">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 px-4 py-3">
         <div className="flex items-center justify-between">

@@ -109,68 +109,72 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* Sidebar */}
-        <div
-          className={`
-            ${showSidebar ? 'translate-x-0' : '-translate-x-full'}
-            lg:translate-x-0
-            fixed lg:relative
-            z-40
-            w-80 lg:w-[340px]
-            h-full
-            pt-14 lg:pt-0
-            transition-transform duration-300 ease-in-out
-            bg-white
-            border-r border-gray-200
-            shadow-lg lg:shadow-none
-          `}
-        >
-          <ConversationList
-            conversations={conversations}
-            activeConversationId={activeConversation?.id || null}
-            activeTab={activeTab}
-            searchQuery={searchQuery}
-            onSelectConversation={(id) => {
-              selectConversation(id);
-              if (window.innerWidth < 1024) {
-                setShowSidebar(false);
-              }
-            }}
-            onTabChange={setActiveTab}
-            onSearchChange={setSearchQuery}
-            tabCounts={tabCounts}
-          />
-        </div>
-
-        {/* Mobile Overlay */}
-        {showSidebar && (
-          <div
-            className="lg:hidden fixed inset-0 z-30 bg-black/30"
-            onClick={() => setShowSidebar(false)}
-          />
-        )}
-
-        {/* Chat Area */}
-        <div className="flex-1 flex pt-14 lg:pt-0 min-w-0 bg-[#F5F7FA]">
-          <ChatView
-            conversation={activeConversation}
-            onSendMessage={sendMessage}
-            onAddNote={addNote}
-            onUpdateStatus={updateConversationStatus}
-            onToggleContactDetails={() => setShowContactDetails(!showContactDetails)}
-            showContactDetails={showContactDetails}
-          />
-
-          {/* Contact Details Panel (Desktop) */}
-          {showContactDetails && activeConversation && (
-            <div className="hidden lg:block">
-              <ContactDetails
-                conversation={activeConversation}
-                onClose={() => setShowContactDetails(false)}
+      <div className="flex-1 overflow-hidden bg-[#F5F7FA]">
+        <div className="h-full lg:p-6">
+          <div className="h-full bg-white lg:rounded-xl lg:shadow-sm overflow-hidden flex">
+            {/* Sidebar */}
+            <div
+              className={`
+                ${showSidebar ? 'translate-x-0' : '-translate-x-full'}
+                lg:translate-x-0
+                fixed lg:relative
+                z-40
+                w-80 lg:w-[340px]
+                h-full
+                pt-14 lg:pt-0
+                transition-transform duration-300 ease-in-out
+                bg-white
+                border-r border-gray-200
+                shadow-lg lg:shadow-none
+              `}
+            >
+              <ConversationList
+                conversations={conversations}
+                activeConversationId={activeConversation?.id || null}
+                activeTab={activeTab}
+                searchQuery={searchQuery}
+                onSelectConversation={(id) => {
+                  selectConversation(id);
+                  if (window.innerWidth < 1024) {
+                    setShowSidebar(false);
+                  }
+                }}
+                onTabChange={setActiveTab}
+                onSearchChange={setSearchQuery}
+                tabCounts={tabCounts}
               />
             </div>
-          )}
+
+            {/* Mobile Overlay */}
+            {showSidebar && (
+              <div
+                className="lg:hidden fixed inset-0 z-30 bg-black/30"
+                onClick={() => setShowSidebar(false)}
+              />
+            )}
+
+            {/* Chat Area */}
+            <div className="flex-1 flex pt-14 lg:pt-0 min-w-0">
+              <ChatView
+                conversation={activeConversation}
+                onSendMessage={sendMessage}
+                onAddNote={addNote}
+                onUpdateStatus={updateConversationStatus}
+                onToggleContactDetails={() => setShowContactDetails(!showContactDetails)}
+                showContactDetails={showContactDetails}
+              />
+
+              {/* Contact Details Panel (Desktop) */}
+              {showContactDetails && activeConversation && (
+                <div className="hidden lg:block">
+                  <ContactDetails
+                    conversation={activeConversation}
+                    onClose={() => setShowContactDetails(false)}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
