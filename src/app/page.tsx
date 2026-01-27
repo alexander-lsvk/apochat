@@ -5,7 +5,7 @@ import { ConversationList } from '@/components/ConversationList';
 import { ChatView } from '@/components/ChatView';
 import { ContactDetails } from '@/components/ContactDetails';
 import { useChat } from '@/hooks/useChat';
-import { Menu, Info, X } from 'lucide-react';
+import { Menu, Info, X, ChevronDown, Building2 } from 'lucide-react';
 
 export default function Home() {
   const {
@@ -32,8 +32,60 @@ export default function Home() {
     done: allConversations.filter((c) => c.status === 'done').length,
   };
 
+  const navItems = [
+    { key: 'bestellungen', label: 'Bestellungen', active: false },
+    { key: 'kunden', label: 'Kunden', active: false },
+    { key: 'termine', label: 'Termine', active: false },
+    { key: 'chat', label: 'Chat', active: true },
+  ];
+
   return (
-    <div className="h-screen flex bg-[#F5F7FA] overflow-hidden">
+    <div className="h-screen flex flex-col bg-white overflow-hidden">
+      {/* Cockpit Header */}
+      <header className="hidden lg:flex items-center justify-between px-6 py-3 border-b border-gray-200 bg-white">
+        {/* Left: Logo */}
+        <div className="flex items-center">
+          <img
+            src="/mea.webp"
+            alt="mea meine apotheke"
+            className="h-10 object-contain"
+          />
+        </div>
+
+        {/* Center: Navigation */}
+        <nav className="flex items-center gap-8">
+          {navItems.map((item) => (
+            <button
+              key={item.key}
+              className={`relative py-2 text-sm font-medium transition-colors ${
+                item.active
+                  ? 'text-gray-900'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              {item.label}
+              {item.active && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[rgb(60,140,75)]" />
+              )}
+            </button>
+          ))}
+        </nav>
+
+        {/* Right: Pharmacy Selector */}
+        <div className="flex items-center">
+          <button className="flex items-center gap-3 px-4 py-2 border border-gray-200 rounded-full hover:bg-gray-50 transition-colors">
+            <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+              <Building2 className="w-4 h-4 text-gray-500" />
+            </div>
+            <div className="text-left">
+              <p className="text-sm font-medium text-gray-900">Rathaus Apotheke</p>
+              <p className="text-xs text-gray-500">Hauptstr. 50</p>
+            </div>
+            <ChevronDown className="w-4 h-4 text-gray-400" />
+          </button>
+        </div>
+      </header>
+
       {/* Mobile Header */}
       <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
         <button
@@ -43,8 +95,8 @@ export default function Home() {
           {showSidebar ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
         <div className="flex items-center gap-2">
-          <MeaLogo />
-          <span className="font-semibold text-[#3E8E41]">mea® Chat</span>
+          <img src="/mea.webp" alt="mea" className="h-8 object-contain" />
+          <span className="font-medium text-gray-900">Chat</span>
         </div>
         {activeConversation && (
           <button
@@ -56,30 +108,24 @@ export default function Home() {
         )}
       </div>
 
-      {/* Sidebar */}
-      <div
-        className={`
-          ${showSidebar ? 'translate-x-0' : '-translate-x-full'}
-          lg:translate-x-0
-          fixed lg:relative
-          z-40
-          w-80 lg:w-[340px]
-          h-full
-          pt-14 lg:pt-0
-          transition-transform duration-300 ease-in-out
-          bg-white
-          shadow-lg lg:shadow-none
-        `}
-      >
-        {/* Desktop Header with Logo */}
-        <div className="hidden lg:flex items-center gap-3 px-4 py-4 border-b border-gray-100">
-          <MeaLogo />
-          <div>
-            <h1 className="font-semibold text-gray-900">mea® Chat</h1>
-            <p className="text-xs text-gray-500">WhatsApp Business</p>
-          </div>
-        </div>
-        <div className="h-[calc(100%-64px)] lg:h-[calc(100%-73px)]">
+      {/* Main Content */}
+      <div className="flex-1 flex overflow-hidden">
+        {/* Sidebar */}
+        <div
+          className={`
+            ${showSidebar ? 'translate-x-0' : '-translate-x-full'}
+            lg:translate-x-0
+            fixed lg:relative
+            z-40
+            w-80 lg:w-[340px]
+            h-full
+            pt-14 lg:pt-0
+            transition-transform duration-300 ease-in-out
+            bg-white
+            border-r border-gray-200
+            shadow-lg lg:shadow-none
+          `}
+        >
           <ConversationList
             conversations={conversations}
             activeConversationId={activeConversation?.id || null}
@@ -87,7 +133,6 @@ export default function Home() {
             searchQuery={searchQuery}
             onSelectConversation={(id) => {
               selectConversation(id);
-              // Close sidebar on mobile after selection
               if (window.innerWidth < 1024) {
                 setShowSidebar(false);
               }
@@ -97,19 +142,17 @@ export default function Home() {
             tabCounts={tabCounts}
           />
         </div>
-      </div>
 
-      {/* Mobile Overlay */}
-      {showSidebar && (
-        <div
-          className="lg:hidden fixed inset-0 z-30 bg-black/30"
-          onClick={() => setShowSidebar(false)}
-        />
-      )}
+        {/* Mobile Overlay */}
+        {showSidebar && (
+          <div
+            className="lg:hidden fixed inset-0 z-30 bg-black/30"
+            onClick={() => setShowSidebar(false)}
+          />
+        )}
 
-      {/* Main Chat Area */}
-      <div className="flex-1 flex flex-col pt-14 lg:pt-0 min-w-0">
-        <div className="flex-1 flex h-full">
+        {/* Chat Area */}
+        <div className="flex-1 flex pt-14 lg:pt-0 min-w-0 bg-[#F5F7FA]">
           <ChatView
             conversation={activeConversation}
             onSendMessage={sendMessage}
@@ -129,7 +172,6 @@ export default function Home() {
             </div>
           )}
         </div>
-
       </div>
 
       {/* Mobile Contact Details */}
@@ -142,15 +184,5 @@ export default function Home() {
         </div>
       )}
     </div>
-  );
-}
-
-function MeaLogo() {
-  return (
-    <img
-      src="/mea.webp"
-      alt="mea"
-      className="h-10 rounded-lg object-contain"
-    />
   );
 }
