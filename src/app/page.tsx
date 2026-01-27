@@ -110,7 +110,7 @@ export default function Home() {
 
       {/* Main Content */}
       <div className="flex-1 overflow-hidden bg-white">
-        <div className="h-full flex flex-col lg:px-16 lg:py-8">
+        <div className="h-full flex flex-col lg:px-32 lg:py-8">
           {/* Page Title */}
           <h1 className="hidden lg:block text-2xl font-semibold text-gray-900 mb-6">Chat</h1>
 
