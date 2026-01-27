@@ -109,9 +109,13 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 overflow-hidden bg-[#F5F7FA]">
-        <div className="h-full lg:p-6">
-          <div className="h-full bg-white lg:rounded-xl lg:shadow-sm overflow-hidden flex">
+      <div className="flex-1 overflow-hidden bg-white">
+        <div className="h-full flex flex-col lg:px-16 lg:py-8">
+          {/* Page Title */}
+          <h1 className="hidden lg:block text-2xl font-semibold text-gray-900 mb-6">Chat</h1>
+
+          {/* Chat Container */}
+          <div className="flex-1 flex overflow-hidden border border-gray-200 lg:rounded-lg">
             {/* Sidebar */}
             <div
               className={`
