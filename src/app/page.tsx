@@ -58,11 +58,10 @@ export default function Home() {
             {navItems.map((item) => (
               <button
                 key={item.key}
-                className={`relative py-2 text-base font-medium transition-colors ${
-                  item.active
+                className={`relative py-2 text-base font-medium transition-colors ${item.active
                     ? 'text-gray-900'
                     : 'text-gray-500 hover:text-gray-700'
-                }`}
+                  }`}
               >
                 {item.label}
                 {item.active && (
@@ -78,7 +77,7 @@ export default function Home() {
               <Building2 className="w-4 h-4 text-gray-500" />
             </div>
             <div className="text-left">
-              <p className="text-sm font-medium text-gray-900">Rathaus Apotheke</p>
+              <p className="text-sm font-medium text-gray-900">Muster Apotheke</p>
               <p className="text-xs text-gray-500">Hauptstr. 50</p>
             </div>
             <ChevronDown className="w-4 h-4 text-gray-400" />
